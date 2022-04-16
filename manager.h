@@ -13,7 +13,9 @@ int loadData(Product *p); // 파일에 저장된 데이터를 불러오는 함�
 int createProduct(Product *p); // 제품을 추가하는 함수
 void readProduct(Product p); // 하나의 제품 출력 함수
 void listProduct(Product *p, int count); // 전체 등록된 제품 리스트 출력
-void searchProduct(Product *p, int count); // 제품이름 검색
 int deleteProduct(Product *p); // 제품 정보 삭제
 void saveProduct(Product *p, int count); // 제품 정보 저장
 int updateProduct(Product *p); // 제품 정보 수정
+void searchProduct(Product *p, int count); // 제품 이름 검색
+void searchWeight(Product *p, int count); // 제품 무게 검색
+void searchType(Product *p, int count); // 제품 배송방법 검색
