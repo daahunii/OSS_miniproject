@@ -2,7 +2,7 @@
 /* manager.c */
 #include <stdio.h>
 #include <string.h>
-#include "product.h"
+#include "manager.h"
 #define DEBUG
 
 int selectMenu(){
@@ -17,6 +17,8 @@ int selectMenu(){
     printf("4. 메뉴삭제\n");
     printf("5. 파일저장\n");
     printf("6. 메뉴이름검색\n");
+    printf("7. 메뉴무게검색\n");
+    printf("8. 메뉴 배송방법 검색\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 메뉴는? ");
     scanf("%d", &menu);
@@ -83,26 +85,6 @@ void listProduct(Product *p, int count){   // 전체 등록된 제품 리스트 
     }
 }
 
-void searchProduct(Product *p, int count){    // 제품이름 검색
-    int scnt = 0;
-    char search[20];
-
-    printf("검색할 이름? ");
-    scanf("%s", search);
-    
-    printf("No  Name  price  weight   type  explain\n");
-    printf("============================================\n");
-    for(int i=0; i<count; i++){
-        if(p[i].price == -1) continue;
-        if(strstr(p[i].name, search)){
-            printf("%2d", i+1);
-            readProduct(p[i]);
-            scnt++;
-        }
-    }
-    if(scnt == 0) printf("=> 검색된 데이터 없음!\n");
-}
-
 int updateProduct(Product *p){
     printf("제품명 : ");
     scanf("%s", p->name);
@@ -132,3 +114,61 @@ void saveProduct(Product *p, int count){    // 제품 정보 저장
     printf("=> 저장됨!\n");
 }
 
+void searchProduct(Product *p, int count){    // 제품이름 검색
+    int scnt = 0;
+    char search[20];
+
+    printf("검색할 이름? ");
+    scanf("%s", search);
+    
+    printf("No  Name  price  weight   type  explain\n");
+    printf("============================================\n");
+    for(int i=0; i<count; i++){
+        if(p[i].price == -1) continue;
+        if(strstr(p[i].name, search)){
+            printf("%2d", i+1);
+            readProduct(p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!\n");
+}
+
+void searchWeight(Product *p, int count){ // 제품 무게 검색
+    int scnt = 0;
+    char search[20];
+
+    printf("검색할 무게? ");
+    scanf("%s", search);
+    
+    printf("No  Name  price  weight   type  explain\n");
+    printf("============================================\n");
+    for(int i=0; i<count; i++){
+        if(p[i].price == -1) continue;
+        if(strstr(p[i].weight, search)){
+            printf("%2d", i+1);
+            readProduct(p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!\n");
+}
+void searchType(Product *p, int count){ // 제품 배송방법 검색
+    int scnt = 0;
+    int search;
+
+    printf("검색할 가격? ");
+    scanf("%d", &search);
+    
+    printf("No  Name  price  weight   type  explain\n");
+    printf("============================================\n");
+    for(int i=0; i<count; i++){
+        if(p[i].price == -1) continue;
+        if(p[i].price == search){
+            printf("%2d", i+1);
+            readProduct(p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!\n");
+}
