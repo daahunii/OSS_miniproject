@@ -157,14 +157,14 @@ void searchType(Product *p, int count){ // 제품 배송방법 검색
     int scnt = 0;
     int search;
 
-    printf("검색할 가격? ");
+    printf("검색할 배송방법? ");
     scanf("%d", &search);
     
     printf("No  Name  price  weight   type  explain\n");
     printf("============================================\n");
     for(int i=0; i<count; i++){
         if(p[i].price == -1) continue;
-        if(p[i].price == search){
+        if(p[i].type == search){
             printf("%2d", i+1);
             readProduct(p[i]);
             scnt++;
