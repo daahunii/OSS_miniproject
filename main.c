@@ -2,7 +2,7 @@
 /* main.c */
 #include <stdio.h>
 #include <string.h>
-#include "product.h"
+#include "manager.h"
 
 int main(){
     Product p[20];
@@ -42,6 +42,8 @@ int main(){
         }
         else if(menu == 5) saveProduct(p, idx);
         else if(menu == 6) searchProduct(p, idx);
+        else if(menu == 7) searchWeight(p, idx);
+        else if(menu == 8) searchType(p, idx);
     }
     printf("종료됨!\n");
     return 0;
