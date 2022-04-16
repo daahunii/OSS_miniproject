@@ -15,4 +15,4 @@ void listProduct(Product *p, int count); // 전체 등록된 제품 리스트 �
 void searchProduct(Product *p, int count); // 제품이름 검색
 int deleteProduct(Product *p); // 제품 정보 삭제
 void saveProduct(Product *p, int count); // 제품 정보 저장
-int updateProduct(Product *p); // 제품 정보 수정장
+int updateProduct(Product *p); // 제품 정보 수정
